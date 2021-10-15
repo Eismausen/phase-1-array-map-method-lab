@@ -11,6 +11,25 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
+function caseFixer(string) {
+  let allWords = string.split(' ');
+  let returnWords = [];
+  for (let i = 0; i < allWords.length; i++) {
+    let newWord = allWords[i][0].toUpperCase() + allWords[i].slice(1);
+    //console.log(newWord);
+    returnWords.push(newWord);
+  }
+  //console.log(returnWords);
+  let returnString = returnWords.join(' ');
+  //console.log(returnString);
+  return returnString;  
 }
+
+const titleCased = () => {
+  return tutorials.map(caseFixer);
+}
+/*
+let sampleString = "My bologna has a first name";
+console.log(caseFixer(sampleString));
+console.log(titleCased);
+*/
